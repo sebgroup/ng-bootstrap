@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { GettingStartedComponent } from './getting-started.component';
+import {CommonModule} from '@angular/common';
+import {SharedModule} from '../shared/shared.module';
 
 describe('GettingStartedComponent', () => {
   let component: GettingStartedComponent;
@@ -8,7 +10,11 @@ describe('GettingStartedComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ GettingStartedComponent ]
+      declarations: [ GettingStartedComponent ],
+      imports: [
+        CommonModule,
+        SharedModule
+      ]
     })
     .compileComponents();
   }));

@@ -1,6 +1,11 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { DropdownComponent } from './dropdown.component';
+import {CommonModule} from '@angular/common';
+import {SharedModule} from '../shared/shared.module';
+import {RouterTestingModule} from '@angular/router/testing';
+import {NgbDropdownModule} from '@ng-bootstrap/ng-bootstrap';
+import {DropdownRoutingModule} from './dropdown-routing.module';
 
 describe('DropdownComponent', () => {
   let component: DropdownComponent;
@@ -8,7 +13,14 @@ describe('DropdownComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DropdownComponent ]
+      declarations: [ DropdownComponent ],
+      imports: [
+        CommonModule,
+        SharedModule,
+        RouterTestingModule,
+        NgbDropdownModule,
+        DropdownRoutingModule
+      ]
     })
     .compileComponents();
   }));
