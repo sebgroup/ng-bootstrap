@@ -1,7 +1,8 @@
 import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
-import { ExemplifyModule } from 'angular-exemplify';
-import { ToastrModule, ToastContainerModule } from 'ng-bootstrap';
+import {SharedModule} from './shared/shared.module';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {RouterTestingModule} from '@angular/router/testing';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
@@ -10,17 +11,9 @@ describe('AppComponent', () => {
         AppComponent
       ],
       imports: [
-        ExemplifyModule,
-        ToastrModule.forRoot({
-          timeOut: 10000,
-          closeButton: true,
-          disableTimeOut: false,
-          progressBar: true,
-          toastClass: 'toast',
-          positionClass: 'toast-bottom-right',
-          enableHtml: true
-        }),
-        ToastContainerModule,
+        RouterTestingModule,
+        SharedModule,
+        NgbModule
       ],
     }).compileComponents();
   }));
@@ -31,16 +24,10 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have a empty title ''`, () => {
+  it(`should have @sebgroup/ng-bootstrap as name ''`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('');
-  });
-
-  it(`should have a empty message ''`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.debugElement.componentInstance;
-    expect(app.message).toEqual('');
+    expect(app.name).toEqual('@sebgroup/ng-bootstrap');
   });
 
   it('should render title in a h1 tag', () => {

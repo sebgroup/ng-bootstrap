@@ -1,6 +1,11 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ModalComponent } from './modal.component';
+import {CommonModule} from '@angular/common';
+import {SharedModule} from '../shared/shared.module';
+import {RouterTestingModule} from '@angular/router/testing';
+import {NgbModalModule} from '@ng-bootstrap/ng-bootstrap';
+import {ModalRoutingModule} from './modal-routing.module';
 
 describe('ModalComponent', () => {
   let component: ModalComponent;
@@ -8,7 +13,14 @@ describe('ModalComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ModalComponent ]
+      declarations: [ ModalComponent ],
+      imports: [
+        CommonModule,
+        SharedModule,
+        RouterTestingModule,
+        NgbModalModule,
+        ModalRoutingModule
+      ]
     })
     .compileComponents();
   }));
