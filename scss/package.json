@@ -19,6 +19,9 @@
   "bugs": {
     "url": "https://github.com/sebgroup/ng-bootstrap/issues"
   },
+  "dependencies": {
+    "@ng-bootstrap/ng-bootstrap": "^5.1.4"
+  },
   "peerDependencies": {
     "@angular/animations": ">=8.0.0-0",
     "@angular/core": ">=8.0.0-0",
