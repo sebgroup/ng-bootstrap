@@ -142,5 +142,8 @@
       }
     }
   },
-  "defaultProject": "ng-bootstrap"
+  "defaultProject": "ng-bootstrap",
+  "cli": {
+    "analytics": false
+  }
 }

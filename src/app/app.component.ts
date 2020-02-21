@@ -48,7 +48,7 @@ export class AppComponent implements AfterViewInit {
                     .find((value: any) => value.path === event.url)
                 ),
                 map((route: any) => route.name)
-            )
+            );
     }
 
     toggleBodyLock(show: boolean, templateRef: any) {
