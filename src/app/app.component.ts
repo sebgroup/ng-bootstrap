@@ -11,8 +11,8 @@ import {MobileDetectService} from "./services/mobile-detect.service";
     styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements AfterViewInit {
-    @ViewChild('stickyMenu',  {read: ElementRef, static: false} ) menuElement: ElementRef;
-    @ViewChild('stickyMobileMenu',  {read: ElementRef, static: false} ) mobileMenuElement: ElementRef;
+    @ViewChild('stickyMenu',  { read: ElementRef } ) menuElement: ElementRef;
+    @ViewChild('stickyMobileMenu',  { read: ElementRef } ) mobileMenuElement: ElementRef;
 
     sticky: boolean = false;
     stickyMobile: boolean = false;
