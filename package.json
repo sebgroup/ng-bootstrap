@@ -54,7 +54,7 @@
     "core-js": "^2.6.10",
     "mobile-detect": "^1.4.4",
     "prismjs": "^1.17.1",
-    "raw-loader": "^0.5.1",
+    "raw-loader": "^4.0.1",
     "rxjs": "^6.5.3",
     "tslib": "^1.10.0",
     "zone.js": "^0.9.1"
