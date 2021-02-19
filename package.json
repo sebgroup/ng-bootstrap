@@ -51,7 +51,7 @@
     "@sebgroup/bootstrap": "^4.0.0",
     "angular-exemplify": "^3.1.4",
     "body-scroll-lock": "^2.6.4",
-    "core-js": "^2.6.10",
+    "core-js": "^3.9.0",
     "mobile-detect": "^1.4.4",
     "prismjs": "^1.17.1",
     "raw-loader": "^0.5.1",
