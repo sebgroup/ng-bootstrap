@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
 import { MobileDetectService } from '../services/mobile-detect.service';
+import {FormBuilder} from '@angular/forms';
 
 @Component({
   selector: 'app-dropdown',
@@ -9,61 +9,28 @@ import { MobileDetectService } from '../services/mobile-detect.service';
 })
 export class DropdownComponent {
 
-  constructor(private mobileDetectService: MobileDetectService) { }
+  constructor(private mobileDetectService: MobileDetectService, private fb: FormBuilder) { }
 
   options: Array<string> = ['First', 'Second', 'Third', 'Forth']; // available options, used by dropdown and multi-select example
   selected: string; // selected option for dropdown example
-  selectedMulti: Array<string> = []; // selected options for multi-select example
-  useContainerBody = true;
 
-  /**
-   * Select
-   * @Param {string} option - option to be selected/deselected
-   */
-  select(option: string) {
+  multiOptions = [{
+    name: 'First', value: 'first', selected: true
+  }, {
+    name: 'Second', value: 'second', selected: false
+  }, {
+    name: 'Third', value: 'third', selected: true
+  }, {
+    name: 'Forth', value: 'forth', selected: true
+  }, {
+    name: 'Fifth', value: 'fifth', selected: true
+  }];
 
-    // get index of option in selected options
-    const index = this.selectedMulti.indexOf(option);
-
-    // if option has index i.e. exists in array...
-    if (index !== -1) {
-
-      // ...remove it from the array
-      this.selectedMulti.splice(index, 1);
-
-    } else {
-      // ...if not add it to the array
-      this.selectedMulti.push(option);
-    }
-
-  }
-
-  /**
-   * Select all - selects all options
-   */
-  selectAll() {
-    this.selectedMulti = [...this.options];
-  }
-
-  /**
-   * Deselect all - deselects all options
-   */
-  deselectAll() {
-    this.selectedMulti = [];
-  }
-
-  toggleBodyLock(show: boolean, templateRef: any) {
-    if (this.mobileDetectService.isMobile()) {
-      if (show) {
-        disableBodyScroll(templateRef);
-      } else {
-        enableBodyScroll(templateRef);
-      }
-    }
-  }
-
-  toggleContainer(value: boolean) {
-    this.useContainerBody = !this.useContainerBody;
-  }
+  selectForm = this.fb.group({
+    selection: ''
+  });
+  multiSelectForm = this.fb.group({
+    multiselect: [this.multiOptions.filter(option => option.selected)]
+  });
 
 }
