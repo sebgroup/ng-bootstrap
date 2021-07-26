@@ -29,8 +29,15 @@
         text-align: left;
         font-size: $h4-font-size;
         border: none;
+        border-radius: 0;
         &:not(.collapsed), &:focus {
           background: $accordion-bg-hover;
+        }
+        &:focus {
+          box-shadow: none;
+        }
+        &:focus-visible {
+          box-shadow: 0 0 0.25em 0.0625em $blue inset;
         }
         &:hover, &:focus {
           text-decoration: none;
