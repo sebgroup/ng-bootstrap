@@ -16,7 +16,11 @@
     "commit": "git-cz",
     "travis-deploy-once": "travis-deploy-once --pro",
     "semantic-release": "semantic-release && npm run build",
-    "package-lock-sanitizer": "package-lock-sanitizer"
+    "package-lock-sanitizer": "package-lock-sanitizer",
+    "format-all": "prettier --config ./.prettierrc --write \"src/{app,environments,assets}/**/*{.ts,.js,.json,.css,.scss}\"",
+    "format-staged": "pretty-quick --staged",
+    "format-check": "prettier --config ./.prettierrc --list-different \"src/{app,environments,assets}/**/*{.ts,.js,.json,.css,.scss}\"",
+    "precommit": "npm run format-staged && npm run lint --fix --force"
   },
   "config": {
     "commitizen": {
@@ -31,11 +35,22 @@
   "husky": {
     "hooks": {
       "pre-commit": "npm run package-lock-sanitizer && git add package-lock.json",
-      "commit-msg": "commitlint --edit"
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
   },
   "release": {
-    "pkgRoot": "dist/lib"
+    "pkgRoot": "./dist/lib",
+    "branches": [
+      "+([0-9])?(.{+([0-9]),x}).x",
+      "master",
+      "next",
+      "next-major",
+      {
+        "name": "release\\/([-a-z]*)",
+        "channel": "${name.replace(/^release\\//g, '')}",
+        "prerelease": "${name.replace(/^release\\//g, '')}"
+      }
+    ]
   },
   "private": true,
   "dependencies": {
@@ -73,7 +88,7 @@
     "commitizen": "^4.2.2",
     "copyfiles": "^2.4.0",
     "cz-conventional-changelog": "^3.3.0",
-    "husky": "^3.1.0",
+    "husky": "^4.3.0",
     "jasmine-core": "~3.6.0",
     "jasmine-spec-reporter": "~5.0.0",
     "karma": "~5.0.0",
@@ -82,6 +97,8 @@
     "karma-jasmine": "~4.0.0",
     "karma-jasmine-html-reporter": "^1.5.0",
     "package-lock-sanitizer": "^1.0.1",
+    "prettier": "^2.2.0",
+    "pretty-quick": "^3.0.2",
     "protractor": "~7.0.0",
     "semantic-release": "^17.3.0",
     "travis-deploy-once": "^5.0.11",
