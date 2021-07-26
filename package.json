@@ -5,8 +5,8 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve --port=4201",
-    "build:demo": "ng build --base-href https://sebgroup.github.io/ng-bootstrap/ && copyfiles -f src/404.html dist/ng-bootstrap",
-    "build-dev": "ng build --base-href https://sebgroup.github.io/ng-bootstrap/dev/ --output-path dist/ng-bootstrap/dev && copyfiles -f src/dev/404.html dist/ng-bootstrap/dev",
+    "build:demo": "ng build --configuration production --base-href https://sebgroup.github.io/ng-bootstrap/ && copyfiles -f src/404.html dist/ng-bootstrap",
+    "build-dev": "ng build --configuration production --base-href https://sebgroup.github.io/ng-bootstrap/dev/ --output-path dist/ng-bootstrap/dev && copyfiles -f src/dev/404.html dist/ng-bootstrap/dev",
     "build": "copyfiles -u 1 'scss/**/*.scss' dist/lib/scss && copyfiles -f CHANGELOG.md LICENSE.md README.md scss/package.json dist/lib",
     "test": "ng test",
     "test-ci": "ng test --watch=false --progress --browsers=ChromeHeadlessNoSandbox",
@@ -18,7 +18,7 @@
     "package-lock-sanitizer": "package-lock-sanitizer",
     "format-all": "prettier --config ./.prettierrc --write \"src/{app,environments,assets}/**/*{.ts,.js,.json,.css,.scss}\"",
     "format-staged": "pretty-quick --staged",
-    "format-check": "prettier --config ./.prettierrc --list-different \"src/{app,environments,assets}/**/*{.ts,.js,.json,.css,.scss}\"",
+    "format-check": "prettier --config ./.prettierrc --list-different \"src/{app,environments,assets}/**/*{.ts,.js,.json,.css,.scss}\""
     "precommit": "npm run format-staged && npm run lint --fix --force"
   },
   "config": {
@@ -79,6 +79,7 @@
     "@angular/cli": "^11.0.2",
     "@angular/compiler-cli": "^11.0.2",
     "@angular/language-service": "^11.0.2",
+    "@babel/core": "^7.14.8",
     "@commitlint/cli": "^8.3.5",
     "@commitlint/config-conventional": "^8.3.4",
     "@types/jasmine": "^3.6.2",
