@@ -18,7 +18,7 @@
     "package-lock-sanitizer": "package-lock-sanitizer",
     "format-all": "prettier --config ./.prettierrc --write \"src/{app,environments,assets}/**/*{.ts,.js,.json,.css,.scss}\"",
     "format-staged": "pretty-quick --staged",
-    "format-check": "prettier --config ./.prettierrc --list-different \"src/{app,environments,assets}/**/*{.ts,.js,.json,.css,.scss}\""
+    "format-check": "prettier --config ./.prettierrc --list-different \"src/{app,environments,assets}/**/*{.ts,.js,.json,.css,.scss}\"",
     "precommit": "npm run format-staged && npm run lint --fix --force"
   },
   "config": {
