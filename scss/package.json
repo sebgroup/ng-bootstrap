@@ -20,14 +20,14 @@
     "url": "https://github.com/sebgroup/ng-bootstrap/issues"
   },
   "dependencies": {
-    "@ng-bootstrap/ng-bootstrap": "^5.1.4"
+    "@ng-bootstrap/ng-bootstrap": "^9.0.0"
   },
   "peerDependencies": {
-    "@angular/animations": ">=8.0.0-0",
-    "@angular/core": ">=8.0.0-0",
-    "@angular/common": ">=8.0.0-0",
-    "@angular/platform-browser": ">=8.0.0-0",
-    "@sebgroup/bootstrap": ">=5.0.0-0",
-    "rxjs": "^6.5.0"
+    "@angular/animations": ">=11.0.0-0",
+    "@angular/core": ">=11.0.0-0",
+    "@angular/common": ">=11.0.0-0",
+    "@angular/platform-browser": ">=11.0.0-0",
+    "@sebgroup/bootstrap": ">=5.4.0-0",
+    "rxjs": "^6.6.0"
   }
 }

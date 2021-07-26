@@ -17,7 +17,9 @@
       [ngbdropdowntoggle] {
         z-index: $zindex-modal;
         background-color: $white !important;
-        opacity: 0.35;
+        opacity: .7;
+        color: black !important;
+        position: relative;
       }
       &::after {
         @include add-transition('fadeIn');
@@ -35,13 +37,24 @@
 }
 @mixin ngb-dropdownmenu($selector) {
   #{$selector}.show {
+    @include media-breakpoint-up(sm) {
+      > .close {
+        display: none;
+      }
+    }
+    .dropdown-multi-select-options, .dropdown-options {
+      max-height: calc(40vh - 5rem);
+      overflow: auto;
+    }
     @include add-transition('fadeIn');
   }
+
   //dropdown style for mobile
   @include media-breakpoint-down(xs) {
     #{$selector} {
-      .dropdown-multi-select-options {
-        margin-top: 5rem;
+      .dropdown-multi-select-options, .dropdown-options {
+        padding-top: .5rem;
+        padding-bottom: 2rem;
       }
 
       .dropdown-item:focus {
@@ -51,14 +64,19 @@
 
       & > .dropdown-control {
         position: fixed;
-        width: 100%;
+        width: 100vw;
         margin-top: -(map_get($spacers, 2));
         background: #fff;
         padding: map_get($spacers, 2) map_get($spacers, 2) 0 map_get($spacers, 2);
       }
 
+      button.close {
+        margin: 1.25rem 1rem -0.25rem;
+        z-index: 2;
+      }
+
       &.show {
-        transform: none !important;
+        //transform: none !important;
         position: fixed !important;
         left: 0 !important;
         bottom: 0 !important;
@@ -68,41 +86,46 @@
         background: #fff;
         max-height: 50vh;
         width: 100vw !important;
-        border-radius: 0;
+        // border-radius: 0;
+        border-radius: 20px 20px 0 0;
         border: none;
         overflow: hidden;
         @include add-transition('slideInUp');
-        .dropdown-multi-select-options {
+        .dropdown-multi-select-options, .dropdown-options {
           max-height: calc(50vh - 5rem);
           overflow: auto;
+          width: 100%;
         }
       }
     }
   }
 
+  // dropdown checkboxes
+  .dropdown-item.custom-control.custom-checkbox {
+    padding: 0;
+    .custom-control-label {
+      display: block;
+      padding: 0.625rem 1.5rem .625rem 3rem;
+    }
+    .custom-control-label::before, .custom-control-label::after {
+      left: 1.5rem;
+      top: .875rem;
+    }
+  }
 }
 @mixin ngb-dropdowntoggle($selector) {
+  .dropdown.show #{$selector} {
+    background: $blue-darker;
+    color: $white;
+  }
+  @include media-breakpoint-down(xs) {
+    body > .dropdown {
+      position: fixed !important;
+      bottom: 0;
+    }
+  }
   #{$selector} {
-    text-align: left;
-    position: relative;
-    display: inline-flex;
-    justify-content: space-between;
-    align-items: baseline;
-    &::after {
-      border: none !important;
-      content: '';
-      display: inline-block;
-      height: $font-size-base;
-      width: $font-size-base;
-      background: $dropdown-icon;
-      background-size: cover;
-      background-position-y: 2px;
-      background-repeat: no-repeat;
-      margin-left: 0.6rem;
-    }
-    &:active::after {
-      background: $dropdown-icon-active;
-    }
+    display: flex;
     &.btn-sm {
       &::after {
         height: $font-size-sm;
@@ -122,14 +145,6 @@
         height: $font-size-lg;
         width: $font-size-lg;
         margin-left: 0.75rem;
-      }
-    }
-    &:hover {
-      &::after {
-        background-size: cover;
-        background-position-y: 2px;
-        background-repeat: no-repeat;
-        border: none;
       }
     }
   }
