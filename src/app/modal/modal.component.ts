@@ -16,7 +16,7 @@ export class ModalComponent {
   constructor(@Inject(DOCUMENT) private document: Document,
               private modalService: NgbModal) {}
 
-  open(content, options?: NgbModalOptions) {
+  open(content, options?: NgbModalOptions): void {
 
     const modalRef = this.modalService.open(content, {...options, ariaLabelledBy: 'modal-basic-title'});
 
