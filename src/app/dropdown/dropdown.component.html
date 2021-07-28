@@ -46,6 +46,7 @@
        Use dropdown as select
     </h4>
     <div class="card-body">
+        <p>Below is an example of how you can use the ng-bootstrap dropdown as a dropdown select by wrapping it in a component that implements <code>ControlValueAccessor</code>.</p>
         <form #ngForm="ngForm" [formGroup]="selectForm">
             <div class="row">
                 <div class="col-12 col-sm-auto">
@@ -56,7 +57,19 @@
         <code>
             <p class="mt-3 mb-0">Selected: {{selectForm.get('selection').value | json}}</p>
         </code>
-        <!--<exemplify [selector]="'#dropdownExample .col-12 > *'" [escapeStrings]="[' ngbDropdownToggle', ' ngbDropdownMenu',' ngbDropdown', '[ngClass]']"></exemplify>-->
+        <exemplify [sources]="[{
+      name: 'markup',
+      src: '<app-select formControlName=&quot;selection&quot; [options]=&quot;options&quot; [allowMultiple]=&quot;false&quot;></app-select>',
+      lang: 'markup'
+    }, {
+      name: 'select.component.html',
+      src: 'https://raw.githubusercontent.com/sebgroup/ng-bootstrap/master/src/app/dropdown/select/select.component.html?token=AAMOT4ZYRM7CHYYOB5QDVSK54TTDO',
+      lang: 'markup'
+    }, {
+      name: 'select.component.ts',
+      src: 'https://raw.githubusercontent.com/sebgroup/ng-bootstrap/master/src/app/dropdown/select/select.component.ts?token=AAMOT4ZYRM7CHYYOB5QDVSK54TTDO',
+      lang: 'typescript'
+    }]"></exemplify>
     </div>
 </div>
 <div class="card my-3 mx-n3 mx-md-0" id="multiselectExample">
@@ -64,6 +77,7 @@
         Use dropdown as a multi-select
     </h4>
     <div class="card-body">
+        <p>Below is an example of how you can use the ng-bootstrap dropdown as a multi select by wrapping it in a component that implements <code>ControlValueAccessor</code>.</p>
         <form #ngForm="ngForm" [formGroup]="multiSelectForm">
             <div class="row">
                 <div class="col-12 col-sm-auto">
@@ -74,7 +88,19 @@
         <code>
             <p class="mt-3 mb-0">Selected: {{multiSelectForm.get('multiselect').value | json}}</p>
         </code>
-        <!--<exemplify [selector]="'#multiselectExample .col-12 > *'" [escapeStrings]="[' ngbDropdownToggle', ' ngbDropdownMenu',' ngbDropdown', '[ngClass]']"></exemplify>-->
+        <exemplify [sources]="[{
+      name: 'markup',
+      src: '<app-select formControlName=&quot;multiselect&quot; [options]=&quot;options&quot; [allowMultiple]=&quot;true&quot;></app-select>',
+      lang: 'markup'
+    }, {
+      name: 'select.component.html',
+      src: 'https://raw.githubusercontent.com/sebgroup/ng-bootstrap/master/src/app/dropdown/select/select.component.html?token=AAMOT4ZYRM7CHYYOB5QDVSK54TTDO',
+      lang: 'markup'
+    }, {
+      name: 'select.component.ts',
+      src: 'https://raw.githubusercontent.com/sebgroup/ng-bootstrap/master/src/app/dropdown/select/select.component.ts?token=AAMOT4ZYRM7CHYYOB5QDVSK54TTDO',
+      lang: 'typescript'
+    }]"></exemplify>
     </div>
 </div>
 <!--<div class="card my-3 mx-n3 mx-md-0" id="dropdownSizeExample">
